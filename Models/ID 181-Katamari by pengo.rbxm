@@ -1,0 +1,171 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="HopperBin" referent="RBX0">
+		<Properties>
+			<token name="BinType">0</token>
+			<string name="Name">Katamari</string>
+			<Content name="TextureId"><null></null></Content>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Script" referent="RBX1">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<string name="Source">--[[ Creative Commons Zero
+Concept stolen from Katamari Damacy by Namco
+Have fun ;) -pengo
+]]--
+local config = {
+	clumpBudget = 100;
+}
+
+local bin = script.Parent
+local ball
+local clumpsRemaining = 0
+local hooks, touching = {}, {}
+
+function hook(connection)
+	table.insert(hooks, connection)
+end
+
+function clearHooks()
+	while #hooks &gt; 0 do
+		table.remove(hooks):disconnect()
+	end
+end
+
+bin.ballPtr.Changed:connect(function(value)
+	clearHooks()
+	ball = value
+	bin.mass.Value = ball:GetMass()
+	touching = {}
+	ball.Touched:connect(onTouched)
+end)
+
+function clump(x)
+	local weld = Instance.new(&quot;Weld&quot;, ball)
+	weld.C0 = ball.CFrame:toObjectSpace(x.CFrame)
+	weld.Part0 = ball
+	weld.Part1 = x
+
+	touching[x] = true
+	bin.mass.Value = bin.mass.Value + x:GetMass()
+	hook(x.Touched:connect(onTouched))
+end
+
+function onTouched(x)
+	if x.Anchored
+	or touching[x]
+	or x:GetMass() &gt; bin.mass.Value
+	or x:IsDescendantOf(bin.Parent.Parent.Character)
+	then
+		return
+	end
+
+	x:BreakJoints()
+	if clumpsRemaining &gt; 0 then
+		clump(x)
+		clumpsRemaining = clumpsRemaining - 1
+	end
+end
+
+while wait(1) do
+	clumpsRemaining = config.clumpBudget
+end</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="LocalScript" referent="RBX2">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<string name="Source">--[[ Creative Commons Zero
+Concept stolen from Katamari Damacy (Clump Spirit) by Namco
+Have fun ;) -pengo, 1 October 2024
+]]--
+local config = {
+	size = 7;
+	speed = 8;
+	torque = 30000;
+}
+
+local bin = script.Parent
+local localplayer = game.Players.LocalPlayer
+local ball, torque, camera
+
+function getPlayerCamera()
+	for _, child in pairs(workspace:GetChildren()) do
+		if child.className == &quot;Camera&quot;
+		and child.CameraSubject == localplayer.Character.Humanoid then
+			return child
+		end
+	end
+end
+
+function makeBall(parent)
+	ball = Instance.new(&quot;Part&quot;, parent)
+	ball.Name = &quot;katamari&quot;
+	ball.Shape = &quot;Ball&quot;
+	ball.Size = Vector3.new(1, 1, 1) * config.size
+	ball.Position = localplayer.Character.PrimaryPart.Position
+	ball.BrickColor = BrickColor.new(&quot;Bright violet&quot;)
+	ball.Transparency = 0.2
+	ball.Reflectance = 0.2
+	ball.TopSurface = &quot;Smooth&quot;
+	ball.BottomSurface = &quot;Smooth&quot;
+	ball.Friction = 2
+
+	torque = Instance.new(&quot;BodyAngularVelocity&quot;, ball)
+	torque.angularvelocity = Vector3.new(0, 0, 0)
+
+	bin.ballPtr.Value = ball
+end
+
+bin.Selected:connect(function(mouse)
+	makeBall(localplayer.Character)
+
+	camera = getPlayerCamera()
+	camera.CameraType = &quot;Follow&quot;
+	camera.CameraSubject = ball
+
+	mouse.Button1Down:connect(function()
+		torque.maxTorque = Vector3.new(1, 1, 1) * bin.mass.Value * config.torque
+	end)
+	mouse.Button1Up:connect(function()
+		torque.maxTorque = Vector3.new(0, 0, 0)
+	end)
+	mouse.Move:connect(function()
+		local wishDir = mouse.Hit.p - ball.Position
+		torque.angularvelocity = Vector3.new(wishDir.z, 0, -wishDir.x).unit * config.speed
+	end)
+end)
+
+bin.Deselected:connect(function()
+	if ball then
+		ball:Remove()
+	end
+
+	camera.CameraSubject = localplayer.Character.Humanoid
+end)</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="ObjectValue" referent="RBX3">
+			<Properties>
+				<string name="Name">ballPtr</string>
+				<Ref name="Value">null</Ref>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="NumberValue" referent="RBX4">
+			<Properties>
+				<string name="Name">mass</string>
+				<double name="Value">0</double>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

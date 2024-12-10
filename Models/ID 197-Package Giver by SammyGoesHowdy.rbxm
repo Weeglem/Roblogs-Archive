@@ -1,0 +1,276 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Model" referent="RBX0">
+		<Properties>
+			<CoordinateFrame name="ModelInPrimary">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<string name="Name">Package Givers</string>
+			<Ref name="PrimaryPart">null</Ref>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Part" referent="RBX1">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">23</int>
+				<CoordinateFrame name="CFrame">
+					<X>14.6000004</X>
+					<Y>2.9000001</Y>
+					<Z>1</Z>
+					<R00>0</R00>
+					<R01>-1</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>0</R11>
+					<R12>1</R12>
+					<R20>-1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<bool name="DraggingV1">false</bool>
+				<float name="Elasticity">0.5</float>
+				<token name="FormFactor">1</token>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Robloxian 2.0</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<bool name="archivable">true</bool>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>4</X>
+					<Y>0.800000012</Y>
+					<Z>5</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Script" referent="RBX2">
+				<Properties>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Script</string>
+					<ProtectedString name="Source">script.Parent.Touched:connect(function(hit)
+	local human = hit.Parent:findFirstChild(&quot;Humanoid&quot;) 
+	if (human == nil) then return end
+	for I, mesh in ipairs(hit.Parent:GetChildren()) do
+		if mesh:IsA(&quot;CharacterMesh&quot;) then 
+			mesh:remove()
+		end
+	end 
+
+	for _, mesh in pairs(script:GetChildren()) do
+		local morph = mesh:Clone()
+		morph.Parent = hit.Parent
+	end
+end)</ProtectedString>
+					<bool name="archivable">true</bool>
+				</Properties>
+				<Item class="CharacterMesh" referent="RBX3">
+					<Properties>
+						<int name="BaseTextureId">0</int>
+						<token name="BodyPart">2</token>
+						<int name="MeshId">27111419</int>
+						<string name="Name">Roblox 2.0 Left Arm</string>
+						<int name="OverlayTextureId">0</int>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="CharacterMesh" referent="RBX4">
+					<Properties>
+						<int name="BaseTextureId">0</int>
+						<token name="BodyPart">4</token>
+						<int name="MeshId">27111857</int>
+						<string name="Name">Roblox 2.0 Left Leg</string>
+						<int name="OverlayTextureId">0</int>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="CharacterMesh" referent="RBX5">
+					<Properties>
+						<int name="BaseTextureId">0</int>
+						<token name="BodyPart">3</token>
+						<int name="MeshId">27111864</int>
+						<string name="Name">Roblox 2.0 Right Arm</string>
+						<int name="OverlayTextureId">0</int>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="CharacterMesh" referent="RBX6">
+					<Properties>
+						<int name="BaseTextureId">0</int>
+						<token name="BodyPart">5</token>
+						<int name="MeshId">27111882</int>
+						<string name="Name">Roblox 2.0 Right Leg</string>
+						<int name="OverlayTextureId">0</int>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="CharacterMesh" referent="RBX7">
+					<Properties>
+						<int name="BaseTextureId">0</int>
+						<token name="BodyPart">1</token>
+						<int name="MeshId">27111894</int>
+						<string name="Name">Roblox 2.0 torso</string>
+						<int name="OverlayTextureId">0</int>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+			</Item>
+			<Item class="Decal" referent="RBX8">
+				<Properties>
+					<token name="Face">1</token>
+					<string name="Name">Bundle</string>
+					<float name="Shiny">20</float>
+					<float name="Specular">0</float>
+					<Content name="Texture"><url>http://www.roblox.com/asset/?id=27153420</url></Content>
+					<bool name="archivable">true</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Part" referent="RBX9">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<int name="BrickColor">23</int>
+				<CoordinateFrame name="CFrame">
+					<X>14.6000004</X>
+					<Y>2.9000001</Y>
+					<Z>7</Z>
+					<R00>0</R00>
+					<R01>-1</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>0</R11>
+					<R12>1</R12>
+					<R20>-1</R20>
+					<R21>0</R21>
+					<R22>0</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<bool name="DraggingV1">false</bool>
+				<float name="Elasticity">0.5</float>
+				<token name="FormFactor">1</token>
+				<float name="Friction">0.300000012</float>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<token name="Material">256</token>
+				<string name="Name">Remove Bundle</string>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">0</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<bool name="archivable">true</bool>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>4</X>
+					<Y>0.800000012</Y>
+					<Z>5</Z>
+				</Vector3>
+			</Properties>
+			<Item class="Script" referent="RBX10">
+				<Properties>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Script</string>
+					<ProtectedString name="Source">script.Parent.Touched:connect(function(hit)
+	local human = hit.Parent:findFirstChild(&quot;Humanoid&quot;) 
+	if (human == nil) then return end
+	for I, mesh in ipairs(hit.Parent:GetChildren()) do
+		if mesh:IsA(&quot;CharacterMesh&quot;) then 
+			mesh:remove()
+		end
+	end 
+end)</ProtectedString>
+					<bool name="archivable">true</bool>
+				</Properties>
+			</Item>
+			<Item class="Decal" referent="RBX11">
+				<Properties>
+					<token name="Face">1</token>
+					<string name="Name">Bundle</string>
+					<float name="Shiny">20</float>
+					<float name="Specular">0</float>
+					<Content name="Texture"><url>http://www.roblox.com/asset/?id=27978614</url></Content>
+					<bool name="archivable">true</bool>
+				</Properties>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

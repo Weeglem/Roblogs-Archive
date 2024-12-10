@@ -1,0 +1,173 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="HopperBin" referent="RBX0">
+		<Properties>
+			<bool name="Active">false</bool>
+			<token name="BinType">0</token>
+			<string name="Name">Time Bomb</string>
+			<Content name="TextureId"><url>rbxasset://Textures/Bomb.png</url></Content>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Script" referent="RBX1">
+			<Properties>
+				<bool name="Disabled">true</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Bomb</string>
+				<ProtectedString name="Source">updateInterval = .9
+
+currentColor = 1
+colors = {26, 21} 
+
+ticksound = Instance.new(&quot;Sound&quot;)
+ticksound.SoundId = &quot;rbxasset://sounds\\clickfast.wav&quot;
+ticksound.Parent = script.Parent
+
+function update()
+	updateInterval = updateInterval * .9
+
+	script.Parent.BrickColor = BrickColor.new(colors[currentColor])
+	currentColor = currentColor + 1
+	if (currentColor &gt; 2) then currentColor = 1 end
+end
+
+
+function blowUp()
+	local sound = Instance.new(&quot;Sound&quot;)
+		sound.SoundId = &quot;rbxasset://sounds\\Rocket shot.wav&quot;
+		sound.Parent = script.Parent
+		sound.Volume = 1
+		sound:play()
+	explosion = Instance.new(&quot;Explosion&quot;)
+	explosion.BlastRadius = 12000000000
+	explosion.BlastPressure = 100000000000 -- these are really wussy units
+
+	-- find instigator tag
+	local creator = script.Parent:findFirstChild(&quot;creator&quot;)
+	if creator ~= nil then
+		explosion.Hit:connect(function(part, distance)  onPlayerBlownUp(part, distance, creator) end)
+	end
+
+	explosion.Position = script.Parent.Position
+	explosion.Parent = game.Workspace
+	script.Parent.Transparency = 1
+end
+
+function onPlayerBlownUp(part, distance, creator)
+	if part.Name == &quot;Head&quot; then
+		local humanoid = part.Parent:findFirstChild(&quot;Humanoid&quot;)
+		tagHumanoid(humanoid, creator)
+	end
+end
+
+function tagHumanoid(humanoid, creator)
+	-- tag does not need to expire iff all explosions lethal
+	
+	if creator ~= nil then
+		local new_tag = creator:clone()
+		new_tag.Parent = humanoid
+	end
+end
+
+function untagHumanoid(humanoid)
+	if humanoid ~= nil then
+		local tag = humanoid:findFirstChild(&quot;creator&quot;)
+		if tag ~= nil then
+			tag.Parent = nil
+		end
+	end
+end
+
+while updateInterval &gt; .1 do
+	wait(updateInterval)
+	update()
+
+	
+	ticksound:play()
+	
+end
+
+blowUp()
+wait(0)
+script.Parent:remove()
+</ProtectedString>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX2">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">PlantBomb</string>
+				<ProtectedString name="Source">print(&quot;Bomb hopper script loaded&quot;)
+
+bin = script.Parent
+bombScript = script.Parent.Bomb
+
+function plant()
+	local bomb = Instance.new(&quot;Part&quot;)
+
+        
+
+	local spawnPos = game.Players.LocalPlayer.Character.PrimaryPart.Position
+
+
+	
+
+	bomb.Position = Vector3.new(spawnPos.x, spawnPos.y+3, spawnPos.z)
+	bomb.Size = Vector3.new(2,2,2)
+	
+	bomb.BrickColor = BrickColor.new(21)
+	bomb.Shape = 0
+	bomb.BottomSurface = 0
+	bomb.TopSurface = 0
+	bomb.Reflectance = 1
+	bomb.Name = &quot;TimeBomb&quot;
+	bomb.Locked = true
+
+	local creator_tag = Instance.new(&quot;ObjectValue&quot;)
+	creator_tag.Value = game.Players.LocalPlayer
+	creator_tag.Name = &quot;creator&quot;
+	creator_tag.Parent = bomb
+
+	bomb.Parent = game.Workspace
+	local new_script = bombScript:clone()
+	new_script.Disabled = false
+	new_script.Parent = bomb
+
+end
+
+
+
+enabled = true
+function onButton1Down(mouse)
+	if not enabled then
+		return
+	end
+
+	enabled = false
+	mouse.Icon = &quot;rbxasset://textures\\ArrowFarCursor.png&quot;
+
+
+
+	plant()
+
+	wait(0)
+	mouse.Icon = &quot;rbxasset://textures\\ArrowCursor.png&quot;
+	enabled = true
+
+end
+
+function onSelected(mouse)
+	print(&quot;bomb selected&quot;)
+	mouse.Icon = &quot;rbxasset://textures\\ArrowCursor.png&quot;
+	mouse.Button1Down:connect(function() onButton1Down(mouse) end)
+end
+
+bin.Selected:connect(onSelected)
+</ProtectedString>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

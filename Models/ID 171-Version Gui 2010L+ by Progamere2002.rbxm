@@ -1,0 +1,183 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="TextLabel" referent="RBX0">
+		<Properties>
+			<bool name="Active">false</bool>
+			<Color3 name="BackgroundColor3">4288914085</Color3>
+			<float name="BackgroundTransparency">1</float>
+			<Color3 name="BorderColor3">4279970357</Color3>
+			<int name="BorderSizePixel">1</int>
+			<token name="FontSize">6</token>
+			<string name="Name">VersionText</string>
+			<UDim2 name="Position">
+				<XS>0</XS>
+				<XO>0</XO>
+				<YS>0</YS>
+				<YO>0</YO>
+			</UDim2>
+			<UDim2 name="Size">
+				<XS>1</XS>
+				<XO>0</XO>
+				<YS>1</YS>
+				<YO>0</YO>
+			</UDim2>
+			<token name="SizeConstraint">0</token>
+			<string name="Text">insert Version here</string>
+			<Color3 name="TextColor3">4294967295</Color3>
+			<float name="TextTransparency">0</float>
+			<bool name="TextWrap">false</bool>
+			<token name="TextXAlignment">2</token>
+			<token name="TextYAlignment">1</token>
+			<bool name="Visible">true</bool>
+			<int name="ZIndex">1</int>
+			<bool name="archivable">true</bool>
+		</Properties>
+	</Item>
+	<Item class="Frame" referent="RBX1">
+		<Properties>
+			<bool name="Active">false</bool>
+			<Color3 name="BackgroundColor3">4278190080</Color3>
+			<float name="BackgroundTransparency">0</float>
+			<Color3 name="BorderColor3">4279970357</Color3>
+			<int name="BorderSizePixel">0</int>
+			<string name="Name">VersionFrame</string>
+			<UDim2 name="Position">
+				<XS>0</XS>
+				<XO>35</XO>
+				<YS>0</YS>
+				<YO>2</YO>
+			</UDim2>
+			<UDim2 name="Size">
+				<XS>0</XS>
+				<XO>120</XO>
+				<YS>0</YS>
+				<YO>30</YO>
+			</UDim2>
+			<token name="SizeConstraint">0</token>
+			<bool name="Visible">true</bool>
+			<int name="ZIndex">1</int>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="TextLabel" referent="RBX0">
+			<Properties>
+				<bool name="Active">false</bool>
+				<Color3 name="BackgroundColor3">4288914085</Color3>
+				<float name="BackgroundTransparency">1</float>
+				<Color3 name="BorderColor3">4279970357</Color3>
+				<int name="BorderSizePixel">1</int>
+				<token name="FontSize">6</token>
+				<string name="Name">VersionText</string>
+				<UDim2 name="Position">
+					<XS>0</XS>
+					<XO>0</XO>
+					<YS>0</YS>
+					<YO>0</YO>
+				</UDim2>
+				<UDim2 name="Size">
+					<XS>1</XS>
+					<XO>0</XO>
+					<YS>1</YS>
+					<YO>0</YO>
+				</UDim2>
+				<token name="SizeConstraint">0</token>
+				<string name="Text">insert Version here</string>
+				<Color3 name="TextColor3">4294967295</Color3>
+				<float name="TextTransparency">0</float>
+				<bool name="TextWrap">false</bool>
+				<token name="TextXAlignment">2</token>
+				<token name="TextYAlignment">1</token>
+				<bool name="Visible">true</bool>
+				<int name="ZIndex">1</int>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="ScreenGui" referent="RBX2">
+		<Properties>
+			<string name="Name">PUT THIS IN STARTER GUI</string>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Frame" referent="RBX1">
+			<Properties>
+				<bool name="Active">false</bool>
+				<Color3 name="BackgroundColor3">4278190080</Color3>
+				<float name="BackgroundTransparency">0</float>
+				<Color3 name="BorderColor3">4279970357</Color3>
+				<int name="BorderSizePixel">0</int>
+				<string name="Name">VersionFrame</string>
+				<UDim2 name="Position">
+					<XS>0</XS>
+					<XO>35</XO>
+					<YS>0</YS>
+					<YO>2</YO>
+				</UDim2>
+				<UDim2 name="Size">
+					<XS>0</XS>
+					<XO>120</XO>
+					<YS>0</YS>
+					<YO>30</YO>
+				</UDim2>
+				<token name="SizeConstraint">0</token>
+				<bool name="Visible">true</bool>
+				<int name="ZIndex">1</int>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="TextLabel" referent="RBX0">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Color3 name="BackgroundColor3">4288914085</Color3>
+					<float name="BackgroundTransparency">1</float>
+					<Color3 name="BorderColor3">4279970357</Color3>
+					<int name="BorderSizePixel">1</int>
+					<token name="FontSize">6</token>
+					<string name="Name">VersionText</string>
+					<UDim2 name="Position">
+						<XS>0</XS>
+						<XO>0</XO>
+						<YS>0</YS>
+						<YO>0</YO>
+					</UDim2>
+					<UDim2 name="Size">
+						<XS>1</XS>
+						<XO>0</XO>
+						<YS>1</YS>
+						<YO>0</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<string name="Text">insert Version here</string>
+					<Color3 name="TextColor3">4294967295</Color3>
+					<float name="TextTransparency">0</float>
+					<bool name="TextWrap">false</bool>
+					<token name="TextXAlignment">2</token>
+					<token name="TextYAlignment">1</token>
+					<bool name="Visible">true</bool>
+					<int name="ZIndex">1</int>
+					<bool name="archivable">true</bool>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX3">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">LocalScript</string>
+				<ProtectedString name="Source">local gui = script.Parent
+local frame = gui.VersionFrame
+
+local transStepper = 0.05
+
+wait(5)
+
+while frame.BackgroundTransparency &lt; 1 do
+	frame.BackgroundTransparency = frame.BackgroundTransparency + transStepper
+	frame.VersionText.TextTransparency = frame.VersionText.TextTransparency + transStepper
+	wait(0.03)
+end
+
+gui:remove()</ProtectedString>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
